@@ -1,5 +1,26 @@
 # React + TypeScript + Vite
 
+## Authentication
+
+Set these variables in a local `.env` file before starting the demo:
+
+```env
+AUTH_FRONTEND_URL=https://auth.example.com/login
+VITE_AUTH_SERVICE_URL=https://auth-api.example.com
+```
+
+Use the actual auth frontend URL and auth service origin for your environment. The
+demo calls `GET /auth/me` with credentials and, on a 401, redirects to
+`AUTH_FRONTEND_URL` with the full current URL in the `redirect` query parameter.
+Other errors are displayed instead of redirecting.
+
+The auth service must permit the demo's origin in its credentialed CORS
+configuration, and its cookie must be usable by the browser for the service
+origin. The auth frontend must also support and validate returning to the demo's
+absolute URL after login; the neighboring auth frontend currently only accepts
+same-origin paths and uses a mock login API, so it does not yet complete that
+round trip.
+
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
 Currently, two official plugins are available:

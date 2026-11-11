@@ -7,6 +7,18 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
 
+#: src/App.tsx
+msgid "Checking your session..."
+msgstr "Checking your session..."
+
+#: src/App.tsx
+msgid "You are logged in."
+msgstr "You are logged in."
+
+#: src/App.tsx
+msgid "Unable to check your session. Please try again later."
+msgstr "Unable to check your session. Please try again later."
+
 #: src/pages/register.tsx:41
 msgid "Already have an account?"
 msgstr "Already have an account?"

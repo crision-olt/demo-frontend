@@ -1,33 +1,32 @@
-# Demo App
+# React + TypeScript + Vite
 
-Demonstration of a consumer application that validates authentication via the centralized Auth Service.
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-## Structure
+Currently, two official plugins are available:
 
-- `api/` - Express API with protected endpoints
-- `frontend/` - React frontend that calls protected endpoints
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## Quick Start
+## React Compiler
 
-### Terminal 1: Demo App API
-```bash
-cd demo-app/api
-npm install
-cp .env.example .env
-npm start
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the Oxlint configuration
+
+If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc"],
+  "options": {
+    "typeAware": true
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  }
+}
 ```
 
-### Terminal 2: Demo App Frontend
-```bash
-cd demo-app/frontend
-npm install
-npm run dev
-```
-
-## How to Test
-
-1. Start Auth Service first (see auth-service/README.md)
-2. Start Demo App API and Frontend
-3. Login at http://localhost:3000
-4. You'll be redirected to dashboard, click "Go to Demo App"
-5. Demo App will show you have access to protected content
+See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
